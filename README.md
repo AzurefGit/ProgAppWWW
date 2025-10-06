@@ -1,4 +1,4 @@
 # Programowanie Aplikacji WWW
 
 
-*Łukasz Malinwoski ISI gr. 2*
+Łukasz Malinwoski ISI gr. 2
