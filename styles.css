@@ -1,26 +1,38 @@
-/* img{
-     background-repeat: repeat-x;
-  } */
-
-/* body{
-    background-image: url("Tung_tung_tung_sahur.webp.png");
-    background-repeat: repeat;
-    } */
-
 body{
-  overflow: scroll;
-  background-image: url("oiia-cat-shmoo.gif")
+    color: blue;
 }
 
-audio{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+div#container{
+    background-color: aquamarine;
 }
 
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+header{
+    text-align: center;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #8d8787;
+}
+
+nav ul li{
+    float: left;
+}
+
+nav ul li a{
+    display: block;
+    padding: 15px 205px;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #797171;
+    color: #0011ff;
+    box-shadow: 10px 10px 10px #615a5a;
 }
 
