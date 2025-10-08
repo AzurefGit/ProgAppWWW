@@ -6,7 +6,6 @@ function convert (entryform, from, to)
     convertfrom = from.selectedIndex;
     convertto = to.selectedIndex;
     entryform.display.value = (entryform.input.value * from[convertfrom].value / to[convertto].value);
-
 }
 
 function addchar (input, character)
@@ -25,7 +24,7 @@ function addchar (input, character)
 
 function openvothcom()
 {
-    window.open("","Display window", "toolbar=no, directories=no,   menubar=no");
+    window.open("","Display window", "toolbar=no, directories=no,menubar=no");
 }
 
 function clear (form)
@@ -37,5 +36,5 @@ function clear (form)
 
 function changeBackground (hexNumber)
 {
-    document.bgcolor = hexNumber;
+    document.bgColor = hexNumber
 }

@@ -25,9 +25,16 @@ nav ul li{
 
 nav ul li a{
     display: block;
-    padding: 15px 205px;
+    padding: 15px;
     color: white;
     text-decoration: none;
+}
+
+nav ul li img{
+    height: 100px;
+    width: 100px;
+    box-sizing: border-box;
+    margin: 0 0 0 1199%;
 }
 
 nav ul li a:hover {
