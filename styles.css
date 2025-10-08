@@ -2,10 +2,9 @@ body{
     color: blue;
 }
 
-div#container{
+/* div#container{
     background-color: aquamarine;
-}
-
+} */
 
 header{
     text-align: center;
@@ -20,6 +19,7 @@ nav ul{
 }
 
 nav ul li{
+    margin-left: 10px;
     float: left;
 }
 
@@ -34,5 +34,6 @@ nav ul li a:hover {
     background-color: #797171;
     color: #0011ff;
     box-shadow: 10px 10px 10px #615a5a;
+    text-shadow:  black;
 }
 
