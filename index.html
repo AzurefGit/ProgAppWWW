@@ -3,74 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projekt1">
-    <meta name="keywords" content="HTML5, CSS3, JavaScript">
+    <meta name="description" content="Historia lotów kosmicznych – projekt edukacyjny">
+    <meta name="keywords" content="HTML5, CSS3, kosmos, historia, loty kosmiczne, astronautyka">
     <meta name="author" content="">
+
     <title>Historia lotów kosmicznych</title>
-    <script src="kolorujtlo.js" type="text/javascript"></script>
+
     <link rel="stylesheet" href="styles.css">
+    <script src="kolorujtlo.js"></script>
+    <script src="timedate.js"></script>
 </head>
-<body>
+
+<body onload="startclock()">
+    
 
     <div id="container">
-
+                
         <header>
-            <h1>Strona w trakcie budowy</h1>
+            <div class="czas">
+                <div id="zegarek"></div>
+                <div id="data"></div>
+            </div> 
+            
+            <h1>Historia lotów kosmicznych</h1>
+            <p>Od marzeń o gwiazdach po rzeczywistość eksploracji kosmosu</p>
         </header>
-
-        
-    <FORM METHOD="POST" NAME="background">
-        <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#FFF000')"> 
-        <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#000000')">
-        <INPUT TYPE="button" VALUE="biały" ONCLICK="changeBackground('#FFFFFF')">
-        <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#00FF00')">
-        <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0000FF')">
-        <INPUT TYPE="button" VALUE="pomarańczowy" ONCLICK="changeBackground('#FF8000')"> 
-        <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#c0c0c0')">
-        <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#FF0000')"> 
-    </FORM>
-
+       
         <nav>
             <ul>
-                <li>
-                    <a href="strona1.html">strona1</a>
-                </li>
-                <li>
-                    <a href="strona2.html">strona2</a>
-                </li>
-                <li>
-                    <a href="strona3.html">strona3</a>
-                </li>
-                <li>
-                    <a href="strona4.html">strona4</a>
-                </li>
-                <li>
-                    <img src="cog.jpg" alt="cog">
-                </li>
+                <li><img src="gallery/rocket_nav.png" alt="rocket_nav" class="rocket"></li>
+                <li><a href="strona1.html">strona1</a></li>
+                <li><a href="strona2.html">strona2</a></li>
+                <li><a href="strona3.html">strona3</a></li>
+                <li><a href="strona4.html">strona4</a></li>
+                <li><a href="strona5.html">strona5</a></li>
+            
             </ul>
+
+           
+
         </nav>
 
+    
+
         <main>
-            <section>
             
+            <section class="intro">
+                <h2>Początki ery kosmicznej</h2>
+                <p>4 października 1957 roku Związek Radziecki wyniósł na orbitę pierwszego sztucznego satelitę Ziemi – <strong>Sputnik 1</strong>. To wydarzenie zapoczątkowało wyścig kosmiczny pomiędzy USA a ZSRR, który zdefiniował całe kolejne dekady badań nad przestrzenią kosmiczną.</p>
             </section>
 
-            <section>
-            
+            <section class="milestones">
+                <h2>Najważniejsze wydarzenia</h2>
+                <ul>
+                    <li>1961 – Pierwszy lot człowieka w kosmos: <em>Jurij Gagarin</em></li>
+                    <li>1969 – Lądowanie na Księżycu: <em>Apollo 11</em></li>
+                    <li>1971 – Pierwsza stacja kosmiczna: <em>Salut 1</em></li>
+                    <li>1998 – Rozpoczęcie budowy <em>Międzynarodowej Stacji Kosmicznej (ISS)</em></li>
+                    <li>2021 – Loty komercyjne z pasażerami – era turystyki kosmicznej</li>
+                </ul>
             </section>
 
-            <section>
-            
+            <section class="gallery">
+                <h2>Galeria</h2>
+                <div class="gallery-container">
+                    <img src="Apollo11.jpg" alt="Apollo 11">
+                    <img src="iss.jpg" alt="ISS">
+                    <img src="hubble.jpeg" alt="Teleskop Hubble'a">
+                </div>
+                <p>Zmiana kolorów strony: </p>
+                <FORM METHOD="POST" NAME="background">
+                    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#FFF000')"> 
+                    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#000000')">
+                    <INPUT TYPE="button" VALUE="biały" ONCLICK="changeBackground('#FFFFFF')">
+                    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#00FF00')">
+                    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0000FF')">
+                    <INPUT TYPE="button" VALUE="pomarańczowy" ONCLICK="changeBackground('#FF8000')"> 
+                    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#c0c0c0')">
+                    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#FF0000')"> 
+                </FORM>
             </section>
         </main>
-        
 
         <footer>
-            <h1>stopka</h1>
+            <p>Historia lotów kosmicznych | Projekt HTML5 i CSS3</p>
         </footer>
-
     </div>
-
 </body>
 </html>
-
