@@ -1,4 +1,5 @@
 body {
+    background-color: whitesmoke;
     color: #002244;
     font-family: Arial;
     margin: 0;
@@ -11,11 +12,15 @@ header {
     background-position: center;
     color: white;
     padding: 40px 10px;
+}
 
+header table{
+    border: 1px solid;
 }
 
 header .czas{
     margin-right: -100px;
+    color: #FF5A05;
     float: left;
 }
 
@@ -27,8 +32,7 @@ header .czas{
 
 nav{
     cursor: url("gallery/rocket_cursor.png") 16 16, auto;
-
-        background-image: linear-gradient(180deg, black, blue, blue);
+    background-image: linear-gradient(180deg, black, #052DFF, #052DFF);
     overflow: hidden;
     padding-bottom: 15px;
 }
@@ -52,15 +56,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    cursor: url("gallery/rocket_cursor.png") 16 16, auto;
+    cursor: url("gallery/rocket_cursor2.png") 16 16, auto;
     transform: scale(1.2);
-    background-color: blue;
-    color: cyan;
+    background-color: #052DFF;
+    color: #AAFF05;
     box-shadow: 0 5px 10px black;
     border-radius: 100px;
 }
 
-/* --- Główna treść --- */
+
 main {
     padding: 20px;
 }
@@ -108,12 +112,19 @@ section {
 
 .gallery-container img:hover {
     transform: scale(1.2);
-    box-shadow: 10px 10px 10px #1a1a40;
+    -webkit-mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    -webkit-mask-size: 800%;
+    mask-size: 800%;
+    -webkit-mask-position: 120%;
+    mask-position: 120%;
+    transition:  transform 0.3s ease, mask-position 2s ease, -webkit-mask-position 2s ease;
+   
 }
 
 footer {
-    background-image: linear-gradient(180deg, blue, blue, black);
-    color: white;
+    background-image: linear-gradient(180deg, #052DFF, #052DFF, black);
+    color: #AAFF05;
     text-align: center;
     padding: 10px;
 }

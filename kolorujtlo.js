@@ -36,5 +36,5 @@ function clear (form)
 
 function changeBackground (hexNumber)
 {
-    document.bgColor = hexNumber
+    document.body.style.backgroundColor = hexNumber
 }
