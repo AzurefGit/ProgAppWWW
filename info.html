@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projekt 1">
+    <meta name="keywords" content="HTML5, CSS3, JavaScript">
+    <meta name="author" content="Łukasz Malinowski">
+
+    <title>Historia lotów kosmicznych - informacje</title>
+    <link rel="icon" type="image/x-icon" href="images/ico&cursors/icon.ico">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="kolorujtlo.js"></script>
+    <script src="timedate.js"></script>
+</head>
+
+<body onload="startclock()">
+
+    <div id="container">
+        <header>
+            <div class="time">
+                <table>
+                    <tr>
+                        <th><div id="zegarek"></div></th>
+                    </tr>  
+                    <tr>
+                        <th><div id="data"></div></th>
+                    </tr>   
+                </table>
+            </div> 
+            
+            <h1>Informacje</h1>
+
+        </header>
+       
+        <nav>
+            <ul>
+                <li><img src="images/ico&cursors/rocket_nav.png" alt="rocket_nav" class="rocket"></li>
+                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="artykuly.html">Artykuły</a></li>
+                <li><a href="info.html">Informacje</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="about-section">
+                <h2>Cel projektu</h2>
+                <p>Projekt został stworzony w celu poszerzanie świadomości ludzi na temat lotów kosmicznych oraz ukazanie fascynującej historii podboju kosmosu. Od momentu wyniesienia pierwszego satelity na orbitę, przez pierwsze kroki człowieka na Księżycu, po współczesne misje badawcze</p>
+                
+                <p>Ta witryna ma na celu przybliżyć wszystkim zainteresowanym najbardziej znaczące momenty w historii lotów kosmicznych oraz pokazać, jak te osiągnięcia wpłynęły na rozwój naszej cywilizacji.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Co znajdziesz tej stronie?</h2>
+                <p>Witryna została stworzona z myślą o wszystkich miłośnikach kosmosu zarówno tych, którzy dopiero zaczynają swoją przygodę z astronautyką, jak i tych, którzy chcą poszerzyć swoją wiedzę o szczegóły poszczególnych misji.</p>
+                
+                <div class="info-grid">
+                    <div class="info-box">
+                        <h3>Artykuły</h3>
+                        <p>Szczegółowe opisy najważniejszych wydarzeń z historii lotów kosmicznych.</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>Galeria</h3>
+                        <p>Kolekcja historycznych zdjęć przedstawiających kluczowe momenty eksploracji kosmosu wraz z opisami.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Historia lotów kosmicznych</p>
+        </footer>
+    </div>
+</body>
+</html>
