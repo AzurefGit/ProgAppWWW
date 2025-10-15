@@ -4,6 +4,7 @@ Todays = new Date();
 TheDate = "" + (Todays.getMonth()+ 1) +" / "+ Todays.getDate() + " / " +(Todays.getYear()-100);
 document.getElementById("data").innerHTML = TheDate;
 }
+
 var timerID = null;
 var timerRunning = false;
 

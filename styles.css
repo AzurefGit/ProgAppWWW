@@ -18,7 +18,7 @@ header table{
     border: 1px solid;
 }
 
-header .time{
+header .time-date{
     margin-right: -100px;
     color: #FF5A05;
     float: left;
@@ -76,7 +76,7 @@ footer {
 /* style strony głównej */
 
 .milestones {
-    margin: 40px 0 120px;
+    margin: 44px 0 120px;
 }
 
 .milestones ul {
