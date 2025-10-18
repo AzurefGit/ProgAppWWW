@@ -7,12 +7,13 @@
     <meta name="keywords" content="HTML5, CSS3, JavaScript">
     <meta name="author" content="Łukasz Malinowski">
 
-    <title> Historia lotów kosmicznych</title>
+    <title> Historia lotów kosmicznych - jQ</title>
     <link rel="icon" type="image/x-icon" href="images/ico&cursors/icon.ico">
 
     <link rel="stylesheet" href="styles.css">
     <script src="kolorujtlo.js"></script>
     <script src="timedate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body onload="startclock()">
@@ -31,11 +32,23 @@
             </div> 
             
             <h1>Historia lotów kosmicznych</h1>
-        </header>
-       
+        </header>      
+
+        <nav>
+            <ul>
+                <li><img src="images/ico&cursors/rocket_nav.png" alt="rocket_nav" class="rocket"></li>
+                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="artykuly.html">Artykuły</a></li>
+                <li><a href="info.html">Informacje</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="jQ.html">jQ</a></li>
+            </ul>
+        </nav>
+
         <main>
             <section>
-                <div id="animacjaTestowa1" class="text-block">text++</div>
+                <div id="animacjaTestowa1" class="test-block">text++</div>
                 <script>
                     $("#animacjaTestowa1").on("click", function(){
                         $(this).animate({
@@ -46,23 +59,41 @@
                         }, 1500);
                     });
                 </script>
+
+                
+                <div id="animacjaTestowa2" class="test-block"> Najedź kursorem, a się powiększe</div>
+                    <script>
+                        $("#animacjaTestowa2").on({
+                            "mouseover" : function() {
+                                $(this).animate({ 
+                                    width: 300
+                                }, 800);
+                            },
+                            "mouseout" : function() {
+                                $(this).animate({
+                                    width: 200
+                                }, 800);
+                            }
+                        });
+                    </script>
+
+                
+                <div id="animacjaTestowa3" class="test-block"> Klikaj, abym urósł</div>
+                <script>
+                    $("#animacjaTestowa3").on("click", function(){
+                        if (!$(this).is(":animated")) {
+                                $(this).animate({ 
+                                width: "+=" + 50,
+                                height: "+=" + 10,
+                                opacity: "-=" + 0.1,
+                                duration: 3000
+                            });
+                        }
+                    });
+                </script>
+
             </section>
         </main>
-
-
-        <nav>
-            <ul>
-                <li><img src="images/ico&cursors/rocket_nav.png" alt="rocket_nav" class="rocket"></li>
-                <li><a href="index.html">Strona główna</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="artykuly.html">Artykuły</a></li>
-                <li><a href="info.html">Informacje</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="jQ.html">jquery</a></li>
-            </ul>
-        </nav>
-
-
 
         <footer>
             <p>Historia lotów kosmicznych</p>
