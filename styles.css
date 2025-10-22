@@ -16,6 +16,7 @@ header {
 
 header table{
     border: 1px solid;
+    color: #FF5A05;
 }
 
 header .time-date{
