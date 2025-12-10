@@ -1,109 +1,45 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projekt 1">
-    <meta name="keywords" content="HTML5, CSS3, JavaScript">
-    <meta name="author" content="Łukasz Malinowski">
+<section class="intro">
+    <h2>Formularz kontaktowy</h2>
+    <p>Wypełnij poniższy formularz, a my odpowiemy na Twoje pytania tak szybko, jak to możliwe</p>
+</section>
 
-    <title>Historia lotów kosmicznych - kontakt</title>
-    <link rel="icon" type="image/x-icon" href="img/ico&cursors/icon.ico">
+<section class="contact-section">
+    <form class="contact-form" action="#" method="post">
+        <div class="form-group">
+            <label for="name">Imię i nazwisko:</label>
+            <input type="text" id="name" name="name" placeholder="Podaj swoje imię i nazwisko">
+            <label for="email">Adres e-mail: </label>
+            <input type="email" id="email" name="email" placeholder="twoj@email.com">
+            <label for="subject">Temat wiadomości:</label>
+            <select id="subject" name="subject">
+                <option value="">-- Wybierz temat --</option>
+                <option value="pytanie">Pytanie ogólne</option>
+                <option value="sugestia">Sugestia dotycząca strony</option>
+                <option value="blad">Zgłoszenie błędu</option>
+                <option value="wspolpraca">Propozycja współpracy</option>
+                <option value="inne">Inne</option>
+            </select>
+            <label for="message">Twoja wiadomość:</label>
+            <textarea id="message" name="message" placeholder="Opisz swoją sprawę..."></textarea>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="btn-submit">Wyślij wiadomość</button>
+            <button type="reset" class="btn-reset">Wyczyść formularz</button>
+        </div>
+    </form>
+</section>
 
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/kolorujtlo.js"></script>
-    <script src="../js/timedate.js"></script>
-    <script src="labor_175271_2.php"></script>
-</head>
-
-<body onload="startclock()">
-
-    <div id="container">
-        <header>
-            <div class="time">
-                <table>
-                    <tr>
-                        <th><div id="zegarek"></div></th>
-                    </tr>  
-                    <tr>
-                        <th><div id="data"></div></th>
-                    </tr>   
-                </table>
-            </div> 
-            
-            <h1>Kontakt</h1>
-            
-        </header>
-       
-        <nav>
-            <ul>
-                <li><img src="../img/ico&cursors/rocket_nav.png" alt="rocket_nav" class="rocket"></li>
-                <li><a href="../index.html">Strona główna</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="artykuly.html">Artykuły</a></li>
-                <li><a href="info.html">Informacje</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="jQ.html">jQ</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section class="intro">
-                <h2>Formularz kontaktowy</h2>
-                <p>Wypełnij poniższy formularz, a my odpowiemy na Twoje pytania tak szybko, jak to możliwe</p>
-            </section>
-
-            <section class="contact-section">
-                <form class="contact-form" action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Imię i nazwisko:</label>
-                        <input type="text" id="name" name="name" placeholder="Podaj swoje imię i nazwisko">
-
-                        <label for="email">Adres e-mail: </label>
-                        <input type="email" id="email" name="email" placeholder="twoj@email.com">
-
-                        <label for="subject">Temat wiadomości:</label>
-                        <select id="subject" name="subject">
-                            <option value="">-- Wybierz temat --</option>
-                            <option value="pytanie">Pytanie ogólne</option>
-                            <option value="sugestia">Sugestia dotycząca strony</option>
-                            <option value="blad">Zgłoszenie błędu</option>
-                            <option value="wspolpraca">Propozycja współpracy</option>
-                            <option value="inne">Inne</option>
-                        </select>
-
-                        <label for="message">Twoja wiadomość:</label>
-                        <textarea id="message" name="message" placeholder="Opisz swoją sprawę..."></textarea>
-                    </div>
-
-                    <div class="form-buttons">
-                        <button type="submit" class="btn-submit">Wyślij wiadomość</button>
-                        <button type="reset" class="btn-reset">Wyczyść formularz</button>
-                    </div>
-
-                </form>
-            </section>
-
-            <section class="contact-info">
-                <h2>Inne sposoby kontaktu</h2>
-                <div class="contact-grid">
-                    <div class="contact-box">
-                        <h3>E-mail</h3>
-                        <p><a>kontakt@historiakosmonautyki.pl</a></p>
-                    </div>
-
-                    <div class="contact-box">
-                        <h3>Social Media</h3>
-                        <p>Facebook: HistoriaKosmonautyki<br>
-                        Twitter: @HistoriaKosmos<br>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>Historia lotów kosmicznych</p>
-        </footer>
+<section class="contact-info">
+    <h2>Inne sposoby kontaktu</h2>
+    <div class="contact-grid">
+        <div class="contact-box">
+            <h3>E-mail</h3>
+            <p><a>kontakt@historiakosmonautyki.pl</a></p>
+        </div>
+        <div class="contact-box">
+            <h3>Social Media</h3>
+            <p>Facebook: HistoriaKosmonautyki<br>
+            Twitter: @HistoriaKosmos<br>
+        </div>
     </div>
-</body>
-</html>
+</section>
