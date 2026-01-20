@@ -1,6 +1,7 @@
 <?php
 require_once '../cfg.php';
 require_once '../kategorie.php';
+require_once '../products.php';
 
 session_start();
 
@@ -85,6 +86,10 @@ class Admin
                     <h3>Zarządzanie Kategoriami</h3>
                     <p>Kategorie i podkategorie produktów</p>
                 </a>
+                <a href='?modul=produkty' class='menu-card'>
+                    <h3>Zarządzanie Produktami</h3>
+                    <p>Dodawaj, edytuj i usuwaj produkty</p>
+                </a>
             </div>
         </div>";
     }
@@ -102,9 +107,12 @@ class Admin
               <h3 class='subpage_list_heading'>Lista podstron</h3>
               <a href='?modul=podstrony&action=add' class='btn btn-add'>Dodaj podstronę</a>";
         echo "
-            <form method='post' style='text-align:right; margin-bottom: 15px;'>
-                <button type='submit' name='wyloguj' class='btn btn-logout'>Wyloguj</button>
-            </form>";
+            <div style='display:flex; justify-content:space-between; margin-bottom: 20px;'>
+                 <form method='post' style='margin:0;'>
+                    <button type='submit' name='wyloguj' class='btn btn-logout'>Wyloguj</button>
+                 </form>
+            </div>";
+        echo '<div class="action-bar"><a href="admin.php" class="btn btn-back">← Powrót do menu</a></div>';
 
         while ($row = mysqli_fetch_array($result)) {
             $status = $row['status'] ? 'AKTYWNA' : 'NIEAKTYWNA';
@@ -239,6 +247,7 @@ class Admin
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
 $admin = new Admin($login, $pass, $conn);
 $kategorie_manager = new ZarzadzajKategoriami($conn);
+$produkt_manager = new ZarzadzajProduktami($conn);
 
 $admin->Wyloguj();
 
@@ -333,6 +342,118 @@ if (isset($_SESSION['zalogowany'])) {
 
             echo $kategorie_manager->PokazKategorie();
             echo '</div>';
+            break;
+
+        case 'produkty':
+            $produkt_manager->StworzTabele();
+
+            $action = $_GET['action'] ?? 'list';
+            $msg = '';
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['save_product'])) {
+                    $id = $_POST['id'] ?? null;
+                    $tytul = $_POST['tytul'];
+                    $opis = $_POST['opis'];
+                    $data_wygasniecia = !empty($_POST['data_wygasniecia']) ? $_POST['data_wygasniecia'] : null;
+                    $cena_netto = $_POST['cena_netto'];
+                    $podatek_vat = $_POST['podatek_vat'];
+                    $ilosc_magazyn = $_POST['ilosc_magazyn'];
+                    $status_dostepnosci = isset($_POST['status_dostepnosci']) ? 1 : 0;
+                    $kategoria = $_POST['kategoria'];
+                    $gabaryt = $_POST['gabaryt'];
+                    $zdjecie = $_POST['zdjecie'];
+
+                    if ($id) {
+                        $msg = $produkt_manager->EdytujProdukt($id, $tytul, $opis, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc_magazyn, $status_dostepnosci, $kategoria, $gabaryt, $zdjecie);
+                    } else {
+                        $msg = $produkt_manager->DodajProdukt($tytul, $opis, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc_magazyn, $status_dostepnosci, $kategoria, $gabaryt, $zdjecie);
+                    }
+                    echo "<div class='success'>$msg</div>";
+                    $action = 'list';
+                }
+            }
+
+            if ($action == 'delete' && isset($_GET['id'])) {
+                $msg = $produkt_manager->UsunProdukt($_GET['id']);
+                echo "<div class='success'>$msg</div>";
+                $action = 'list';
+            }
+
+            if ($action == 'list') {
+                echo $produkt_manager->PokazProdukty();
+                echo '<div class="action-bar" style="margin-top:20px;"><a href="admin.php" class="btn btn-back">← Powrót do menu</a></div>';
+            } elseif ($action == 'add' || $action == 'edit') {
+                $product = null;
+                if ($action == 'edit' && isset($_GET['id'])) {
+                    $product = $produkt_manager->PobierzProdukt($_GET['id']);
+                }
+
+                $tytul = $product ? $product['tytul'] : '';
+                $opis = $product ? $product['opis'] : '';
+                $data_wyg = $product ? $product['data_wygasniecia'] : '';
+                $cena = $product ? $product['cena_netto'] : '';
+                $vat = $product ? $product['podatek_vat'] : '23.00';
+                $ilosc = $product ? $product['ilosc_magazyn'] : '0';
+                $status = ($product && $product['status_dostepnosci'] == 1) ? 'checked' : '';
+                if (!$product)
+                    $status = 'checked';
+                $kat_id = $product ? $product['kategoria'] : 0;
+                $gabaryt = $product ? $product['gabaryt'] : '';
+                $zdjecie = $product ? $product['zdjecie'] : '';
+                $id_val = $product ? $product['id'] : '';
+
+                echo "<div class='admin-panel'>
+                    <h2>" . ($product ? 'Edytuj Produkt' : 'Dodaj Produkt') . "</h2>
+                    <form method='post'>
+                        " . ($product ? "<input type='hidden' name='id' value='$id_val'>" : "") . "
+                        
+                        <label>Tytuł:</label>
+                        <input type='text' name='tytul' value='" . htmlspecialchars($tytul) . "' required class='input'>
+
+                        <label>Opis:</label>
+                        <textarea name='opis' rows='5' class='input'>" . htmlspecialchars($opis) . "</textarea>
+
+                        <div style='display:flex; gap:10px;'>
+                            <div style='flex:1'>
+                                <label>Cena Netto:</label>
+                                <input type='number' step='0.01' name='cena_netto' value='$cena' required class='input'>
+                            </div>
+                            <div style='flex:1'>
+                                <label>VAT (%):</label>
+                                <input type='number' step='0.01' name='podatek_vat' value='$vat' class='input'>
+                            </div>
+                        </div>
+
+                        <div style='display:flex; gap:10px;'>
+                            <div style='flex:1'>
+                                <label>Ilość w magazynie:</label>
+                                <input type='number' name='ilosc_magazyn' value='$ilosc' class='input'>
+                            </div>
+                             <div style='flex:1'>
+                                <label>Data wygaśnięcia:</label>
+                                <input type='datetime-local' name='data_wygasniecia' value='$data_wyg' class='input'>
+                            </div>
+                        </div>
+
+                        <label>Kategoria:</label>
+                        <select name='kategoria' class='input'>
+                            " . $kategorie_manager->GenerujSelectKategorii($kat_id) . "
+                        </select>
+
+                        <label>Gabaryt:</label>
+                        <input type='text' name='gabaryt' value='" . htmlspecialchars($gabaryt) . "' class='input'>
+
+                        <label>Link do zdjęcia:</label>
+                        <input type='text' name='zdjecie' value='" . htmlspecialchars($zdjecie) . "' class='input'>
+
+                        <label><input type='checkbox' name='status_dostepnosci' $status> Produkt dostępny (status)</label>
+
+                        <button type='submit' name='save_product' class='btn btn-save'>Zapisz</button>
+                        <a href='?modul=produkty' class='btn btn-cancel'>Anuluj</a>
+                    </form>
+                </div>";
+            }
             break;
 
         default:

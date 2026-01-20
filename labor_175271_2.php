@@ -2,7 +2,7 @@
 
 $nr_indeksu = "175271";
 $nrGrupy = '2';
-echo 'Łukasz Malinowski '."$nr_indeksu".' grupa '."$nrGrupy".' <br /><br />';
+echo 'Łukasz Malinowski ' . "$nr_indeksu" . ' grupa ' . "$nrGrupy" . ' <br /><br />';
 echo 'Zastosowanie metody include() <br />';
 
 include 'plikTest1.php';
@@ -40,15 +40,15 @@ switch ($n) {
         echo "n = 2";
         break;
     default:
-    echo "n != 0/1/2";
-    break;
+        echo "n != 0/1/2";
+        break;
 }
 
 echo "Zastosowanie pętli while, for: <br />";
 
 $i = 0;
 while ($i < 6) {
-    for($j = 0; $j < 6; $j++){
+    for ($j = 0; $j < 6; $j++) {
         echo "$i, $j";
     }
     $i++;
@@ -57,9 +57,7 @@ echo "<br/>";
 
 echo 'Zastosowanie zmiennych $_GET, $_POST, $_SESSION: <br />';
 
-
 echo 'Hello ' . htmlspecialchars($_GET["name"]) . '!';
-// echo 'Hello ' . htmlspecialchars($_POST["name"]) . '!';
 $_SESSION["favcolor"] = "green";
 echo "Session variables are set.";
 ?>
